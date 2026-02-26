@@ -1,0 +1,22 @@
+{
+  "name": "project-memory",
+  "version": "1.0.0",
+  "description": "自动保存和加载项目会话记忆，让你下次打开项目时无缝继续讨论",
+  "author": "Claude Code User",
+  "license": "MIT",
+  "commands": {
+    "memory": "commands/memory.md"
+  },
+  "hooks": {
+    "SessionStart": {
+      "*": [
+        "${CLAUDE_PLUGIN_ROOT}/scripts/load.sh"
+      ]
+    },
+    "Stop": {
+      "*": [
+        "${CLAUDE_PLUGIN_ROOT}/scripts/save.sh"
+      ]
+    }
+  }
+}
